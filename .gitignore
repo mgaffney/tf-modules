@@ -1,0 +1,16 @@
+creds.sh
+init.txt
+tf_log.txt
+.terraform
+*tfstate*
+crash.log
+dist
+*.zip
+logs
+*.srl
+*.crt
+*.csr
+*.key
+*.pub
+*.pem
+*creds.sh
