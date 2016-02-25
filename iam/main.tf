@@ -2,10 +2,6 @@
 # This module is used to create an AWS IAM group and its users
 #--------------------------------------------------------------
 
-variable "name"   { default = "iam" }
-variable "users"  { }
-variable "policy" { }
-
 resource "aws_iam_group" "group" {
   name = "${var.name}"
 }
@@ -31,7 +27,3 @@ resource "aws_iam_group_membership" "membership" {
   group = "${aws_iam_group.group.name}"
   users = ["${aws_iam_user.user.*.name}"]
 }
-
-output "users"       { value = "${join(",", aws_iam_access_key.key.*.user)}" }
-output "access_ids"  { value = "${join(",", aws_iam_access_key.key.*.id)}" }
-output "secret_keys" { value = "${join(",", aws_iam_access_key.key.*.secret)}" }
